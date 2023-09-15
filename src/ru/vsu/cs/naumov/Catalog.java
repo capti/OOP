@@ -1,11 +1,32 @@
 package ru.vsu.cs.naumov;
 
-public class Catalog extends Books{
-    Books Authorname;
+public class Catalog extends Books {
+    private Integer noOfCopies;
 
-    public Integer noofCopies;
+    public Catalog(String authorName, String bookName, Integer noOfCopies) {
+        super(authorName, bookName, noOfCopies);
+        this.noOfCopies = noOfCopies;
+    }
 
-    public Catalog(String authorName, String authorname, Integer noOfBooks) {
-        super(authorName, authorname, noOfBooks);
+    // Геттеры и сеттеры для поля noOfCopies (по желанию)
+
+    public Integer getNoOfCopies() {
+        return noOfCopies;
+    }
+
+    public void setNoOfCopies(Integer noOfCopies) {
+        this.noOfCopies = noOfCopies;
+    }
+
+    // Метод для обновления информации о книге в каталоге
+    public void updateInfo(String newAuthorName, Integer newNoOfCopies) {
+        setAuthorName(newAuthorName);
+        setNoOfCopies(newNoOfCopies);
+    }
+
+    // Метод для поиска книги в каталоге
+    public boolean searchInCatalog(String bookName) {
+        return getBookName().equals(bookName);
     }
 }
+
